@@ -6,7 +6,7 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:42:47 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/18 14:21:04 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:53:40 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,46 +22,57 @@
 • %% Prints a percent sign.
 */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
+	int		sum;
+	int		*ptr_sum;
 
+	sum = 0;
+	ptr_sum = &sum;
 	va_start(args, format);
 	while (*format)
 	{
 		if (*format != '%')
 		{
-			ft_putchar_fd(*format++, 1);
+			ft_putchar(*format++, ptr_sum);
 			continue ;
 		}
 		if (*(format + 1) == '%' && *format == '%')
-			ft_putchar_fd('%', 1);
+			ft_putchar('%', ptr_sum);
 		if (*(format + 1) == 'c')
-			ft_putchar_fd(va_arg(args, int), 1);
+			ft_putchar(va_arg(args, int), ptr_sum);
 		if (*(format + 1) == 's')
-			ft_putstr_fd(va_arg(args, char *), 1);
-		if (*(format + 1) == 'd')
-			ft_putnbr_fd(va_arg(args, int), 1);
+			ft_putstr(va_arg(args, char *), ptr_sum);
+		if (*(format + 1) == 'd' || *(format + 1) == 'i')
+			ft_putnbr(va_arg(args, int), ptr_sum);
 		format = format + 2;
 	}
-	return (0);
+	return (sum);
 }
 
-/*
+
 #include <stdio.h>
 
 int	main(void)
 {
 	char	*format;
+	char	*s2;
 
 	// format= "sss%cd%s\n";
 	// format = "s%c%%%s\n%d\n%%\n";
 	// printf(format, 'c', "ahoj", 1);
 	// ft_printf(format, 'c', "ahoj", 1);
-	format = "%%%s%%s\n";
-	printf(format, "ahoj");
-	ft_printf(format, "ahoj");
+	// format = "%%%s%%s\n";
+	// printf(format, "ahoj");
+	// printf("%d",ft_printf(format, "ahoj"));
+
+
+	 s2 = "Mussum Ipsum,	cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
+	format = " %s";
+	printf(format, "");
+	ft_printf(format, "");
 }
-*/
+

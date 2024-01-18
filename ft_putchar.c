@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:17:58 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/18 11:07:56 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:48:41 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar(char c, int *ptr_sum)
 {
-	write(fd, &c, 1);
+	write(1, &c, 1);
+	*ptr_sum += 1;
 }
