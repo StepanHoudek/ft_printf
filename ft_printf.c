@@ -6,7 +6,7 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:42:47 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/18 13:54:37 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:21:04 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@
 
 #include "libftprintf.h"
 
-const char	*ft_handle_percent(const char *format)
-{
-	while (*format == '%' && *(format + 1) == '%')
-	{
-		if (*(format + 1) == '%' && *format == '%')
-		{
-			ft_putchar_fd('%', 1);
-			format = format + 2;
-		}
-	}
-	return (format);
-}
-
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -44,21 +31,25 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		format = ft_handle_percent(format);
-		while (*format != '%' && *format)
-			ft_putchar_fd((format++)[0], 1);
+		if (*format != '%')
+		{
+			ft_putchar_fd(*format++, 1);
+			continue ;
+		}
+		if (*(format + 1) == '%' && *format == '%')
+			ft_putchar_fd('%', 1);
 		if (*(format + 1) == 'c')
 			ft_putchar_fd(va_arg(args, int), 1);
 		if (*(format + 1) == 's')
 			ft_putstr_fd(va_arg(args, char *), 1);
 		if (*(format + 1) == 'd')
 			ft_putnbr_fd(va_arg(args, int), 1);
-		if (*format)
-			format = format + 2;
+		format = format + 2;
 	}
 	return (0);
 }
 
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -66,10 +57,11 @@ int	main(void)
 	char	*format;
 
 	// format= "sss%cd%s\n";
-	format = "s%c%%%s\n%d\n%%";
-	//printf(format, 'c', "ahoj", 1);
-	ft_printf(format, 'c', "ahoj", 1);
-	// format = "%%%s%%s\n";
-	// printf(format, "ahoj");
-	// ft_printf(format, "ahoj");
+	// format = "s%c%%%s\n%d\n%%\n";
+	// printf(format, 'c', "ahoj", 1);
+	// ft_printf(format, 'c', "ahoj", 1);
+	format = "%%%s%%s\n";
+	printf(format, "ahoj");
+	ft_printf(format, "ahoj");
 }
+*/

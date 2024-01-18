@@ -6,11 +6,11 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:44:39 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/18 11:08:55 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:22:29 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
+#ifndef LIBFTPRINTF_H.h
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
