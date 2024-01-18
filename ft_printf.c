@@ -6,7 +6,7 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:42:47 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/18 15:53:40 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:09:23 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_printf(const char *format, ...)
 	return (sum);
 }
 
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -70,9 +70,15 @@ int	main(void)
 	// printf("%d",ft_printf(format, "ahoj"));
 
 
-	 s2 = "Mussum Ipsum,	cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
-	format = " %s";
-	printf(format, "");
-	ft_printf(format, "");
+	//  s2 = "Mussum Ipsum,	cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
+	// format = " %s";
+	// printf(format, "");
+	// ft_printf(format, "");
+
+
+	//format = " NULL %s NULL ";
+	//printf(format, NULL);
+	ft_printf(" NULL %s NULL ", NULL);
 }
+*/
 
