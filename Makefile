@@ -6,15 +6,15 @@
 #    By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 15:41:13 by shoudek           #+#    #+#              #
-#    Updated: 2024/01/16 15:43:52 by shoudek          ###   ########.fr        #
+#    Updated: 2024/01/18 11:09:22 by shoudek          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		:=	gcc
+CC		:=	cc
 CFLAGS	:=	-Wall -Wextra -Werror
 RM		:=	rm -f
 NAME	:=	libftprintf.a
-SRCS	:=	ft_printf.c \
+SRCS	:=	ft_printf.c ft_putstr_fd.c ft_putnbr_fd.c ft_putchar_fd.c
 OBJS	:=	$(SRCS:.c=.o)
 
 all:		$(NAME)
