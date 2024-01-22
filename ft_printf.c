@@ -17,7 +17,7 @@
 		//• %d Prints a decimal (base 10) number.
 		//• %i Prints an integer in base 10.
 • %p The void * pointer argument has to be printed in hexadecimal format.
-• %u Prints an unsigned decimal (base 10) number.
+		//• %u Prints an unsigned decimal (base 10) number.
 		//• %x Prints a number in hexadecimal (base 16) lowercase format.
 		//• %X Prints a number in hexadecimal (base 16) uppercase format.
 		

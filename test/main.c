@@ -37,6 +37,8 @@ int	main(void)
 	//format = " NULL %s NULL ";
 	//printf(format, NULL);
 	//ft_printf(" NULL %s NULL ", NULL);
-	ft_printf("%x", 222);
+	int 		sig_int = -222;
+	unsigned	unsig_int  = -222;
+	ft_printf("%u", unsig_int);
 	//ft_printf("%d", 222);
 }

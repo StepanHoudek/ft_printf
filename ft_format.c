@@ -31,6 +31,8 @@ void	ft_format(const char *format, int *ptr_sum, va_list args)
 			ft_putnbr(va_arg(args, int), ptr_sum);
 		if (*(format + 1) == 'x' || *(format + 1) == 'X')
 			ft_puthex(va_arg(args, int), format, ptr_sum);
+		if (*(format + 1) == 'u')
+			ft_putunsnbr(va_arg(args, unsigned int), ptr_sum);
 		format = format + 2;
 	}
 	return ;
