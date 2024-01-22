@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-void	ft_puthex(int n, int uppercase, int *ptr_sum)
+void	ft_puthex(int n, const char *format, int *ptr_sum)
 {
 	char		*hex;
 	long int	num;
 	
 	num = n;
-	if (uppercase)
+	if (*(format + 1) == 'X')
 		hex = "ABCDEF";
 	else
 		hex = "abcdef";
@@ -36,8 +36,8 @@ void	ft_puthex(int n, int uppercase, int *ptr_sum)
 	}
 	else
 	{
-		ft_puthex(num / 16, uppercase, ptr_sum);
-		ft_puthex(num - ((num / 16) * 16), uppercase, ptr_sum);
+		ft_puthex(num / 16, format, ptr_sum);
+		ft_puthex(num - ((num / 16) * 16), format, ptr_sum);
 	}
 }
 
@@ -47,7 +47,8 @@ int	main(void)
 	int	*ptr_sum;
 	int	sum = 0;
 	ptr_sum = &sum;
-	ft_puthex(2147483649, 0, ptr_sum);
+	const char	*format = "%x";
+	ft_puthex(222, format, ptr_sum);
 	
 	float	remainder = ((501 % 16) / (float)16) * 16;
 	
@@ -55,3 +56,4 @@ int	main(void)
 	//printf("%f", remainder);
 }
 */
+
