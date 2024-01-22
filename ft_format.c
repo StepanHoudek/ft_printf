@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_format(char *format, int *ptr_sum, va_list args)
+void	ft_format(const char *format, int *ptr_sum, va_list args)
 {
 	while (*format)
 	{
@@ -29,6 +29,8 @@ void	ft_format(char *format, int *ptr_sum, va_list args)
 			ft_putstr(va_arg(args, char *), ptr_sum);
 		if (*(format + 1) == 'd' || *(format + 1) == 'i')
 			ft_putnbr(va_arg(args, int), ptr_sum);
+		if (*(format + 1) == 'x' || *(format + 1) == 'X')
+			ft_puthex(va_arg(args, int), format, ptr_sum);
 		format = format + 2;
 	}
 	return ;
