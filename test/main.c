@@ -37,5 +37,6 @@ int	main(void)
 	//format = " NULL %s NULL ";
 	//printf(format, NULL);
 	//ft_printf(" NULL %s NULL ", NULL);
-	printf("%x", 120);
+	ft_printf("%x", 222);
+	//ft_printf("%d", 222);
 }
