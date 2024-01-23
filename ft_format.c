@@ -6,7 +6,7 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:16:59 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/23 13:47:00 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/23 14:22:44 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ const char	*ft_format(const char *format, int *ptr_sum, va_list args)
 	if (*(format + 1) == 'u')
 		ft_putunsnbr(va_arg(args, unsigned int), ptr_sum);
 	if (*(format + 1) == 'p')
-		ft_handleptr(va_arg(args, uintptr_t), "%x", ptr_sum);
+		ft_handleptr(va_arg(args, uintptr_t), format, ptr_sum);
 	return (format += 2);
 }
