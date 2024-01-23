@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_puthexptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:27:16 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/23 13:22:29 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/23 13:45:17 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthex(unsigned int num, const char *format, int *ptr_sum)
+void	ft_puthexptr(uintptr_t num, const char *format, int *ptr_sum)
 {
 	char	*hex;
 
@@ -29,12 +29,14 @@ void	ft_puthex(unsigned int num, const char *format, int *ptr_sum)
 	}
 	else
 	{
-		ft_puthex(num / 16, format, ptr_sum);
-		ft_puthex(num - ((num / 16) * 16), format, ptr_sum);
+		ft_puthexptr(num / 16, format, ptr_sum);
+		ft_puthexptr(num - ((num / 16) * 16), format, ptr_sum);
 	}
 }
 
 /*
+#include <limits.h>
+
 int	main(void)
 {
 	int			*ptr_sum;
@@ -45,8 +47,8 @@ int	main(void)
 	sum = 0;
 	ptr_sum = &sum;
 	max = 2147483650;
-	ft_puthex(max, format, ptr_sum);
-	printf("\n%x", max);
+	ft_puthexptr(LONG_MIN, format, ptr_sum);
+	//printf("\n%x", max);
 	//float	remainder = ((501 % 16) / (float)16) * 16;
 	//printf("%f", remainder);
 }
