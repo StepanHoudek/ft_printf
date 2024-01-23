@@ -6,7 +6,7 @@
 #    By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 15:41:13 by shoudek           #+#    #+#              #
-#    Updated: 2024/01/18 15:33:32 by shoudek          ###   ########.fr        #
+#    Updated: 2024/01/23 12:10:06 by shoudek          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ CC		:=	cc
 CFLAGS	:=	-Wall -Wextra -Werror
 RM		:=	rm -f
 NAME	:=	libftprintf.a
-SRCS	:=	ft_printf.c ft_putstr.c ft_putnbr.c ft_putchar.c ft_puthex.c ft_format.c ft_putunsnbr.c \
-			ft_putpointer.c
+SRCS	:=	ft_printf.c ft_putstr.c ft_putnbr.c ft_putchar.c ft_puthex.c ft_format.c ft_putunsnbr.c
 OBJS	:=	$(SRCS:.c=.o)
 
 all:		$(NAME)
