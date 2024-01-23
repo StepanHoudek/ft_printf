@@ -34,6 +34,8 @@ int	ft_printf(const char *format, ...)
 	sum = 0;
 	ptr_sum = &sum;
 	va_start(args, format);
+	while (*format != '%')
+		ft_putchar(*format++, ptr_sum);
 	ft_format(format, ptr_sum, args);
 	return (sum);
 }

@@ -13,6 +13,9 @@
 #include "../ft_printf.h"
 
 #include <stdio.h>
+#include <unistd.h>
+
+//• %p The void * pointer argument has to be printed in hexadecimal format.
 
 int	main(void)
 {
@@ -37,8 +40,15 @@ int	main(void)
 	//format = " NULL %s NULL ";
 	//printf(format, NULL);
 	//ft_printf(" NULL %s NULL ", NULL);
-	int 		sig_int = -222;
-	unsigned	unsig_int  = -222;
-	ft_printf("%u", unsig_int);
+	// int 		sig_int = -222;
+	// unsigned	unsig_int  = -222;
+	// ft_printf("%u", unsig_int);
 	//ft_printf("%d", 222);
+	void *ptr;
+	char *ptr2 = "sk";
+	ptr = ptr2;
+	printf("%p\n", ptr);
+	ft_printf("%%%p%s",ptr,"ahoj");
+	
+	//printf("%p",ptr);
 }

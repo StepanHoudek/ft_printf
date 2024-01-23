@@ -16,11 +16,6 @@ void	ft_format(const char *format, int *ptr_sum, va_list args)
 {
 	while (*format)
 	{
-		if (*format != '%')
-		{
-			ft_putchar(*format++, ptr_sum);
-			continue ;
-		}
 		if (*(format + 1) == '%' && *format == '%')
 			ft_putchar('%', ptr_sum);
 		if (*(format + 1) == 'c')
@@ -33,6 +28,11 @@ void	ft_format(const char *format, int *ptr_sum, va_list args)
 			ft_puthex(va_arg(args, int), format, ptr_sum);
 		if (*(format + 1) == 'u')
 			ft_putunsnbr(va_arg(args, unsigned int), ptr_sum);
+		if (*(format + 1) == 'p')
+		{
+			ft_putstr("0x", ptr_sum);
+			ft_puthex((intptr_t)va_arg(args, void*), "%x", ptr_sum);
+		}
 		format = format + 2;
 	}
 	return ;

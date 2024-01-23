@@ -12,12 +12,10 @@
 
 #include "ft_printf.h"
 
-void	ft_puthex(int n, const char *format, int *ptr_sum)
+void	ft_puthex(intptr_t num, const char *format, int *ptr_sum)
 {
 	char		*hex;
-	long int	num;
-	
-	num = n;
+
 	if (*(format + 1) == 'X')
 		hex = "ABCDEF";
 	else
@@ -48,9 +46,10 @@ int	main(void)
 	int	sum = 0;
 	ptr_sum = &sum;
 	const char	*format = "%x";
-	ft_puthex(222, format, ptr_sum);
-	
-	float	remainder = ((501 % 16) / (float)16) * 16;
+	intptr_t max = 2147483650;
+	ft_puthex(max, format, ptr_sum);
+	printf("\n%x", max);
+	//float	remainder = ((501 % 16) / (float)16) * 16;
 	
 	
 	//printf("%f", remainder);
