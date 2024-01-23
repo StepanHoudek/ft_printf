@@ -6,7 +6,7 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:42:47 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/18 17:09:23 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/23 12:38:54 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 		//• %u Prints an unsigned decimal (base 10) number.
 		//• %x Prints a number in hexadecimal (base 16) lowercase format.
 		//• %X Prints a number in hexadecimal (base 16) uppercase format.
-		
+
 */
 
 #include "ft_printf.h"
@@ -34,8 +34,7 @@ int	ft_printf(const char *format, ...)
 	sum = 0;
 	ptr_sum = &sum;
 	va_start(args, format);
-	while (*format != '%')
-		ft_putchar(*format++, ptr_sum);
-	ft_format(format, ptr_sum, args);
+	while (*format)
+		format = ft_format(format, ptr_sum, args);
 	return (sum);
 }
