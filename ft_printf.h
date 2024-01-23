@@ -22,9 +22,8 @@ int		ft_printf(const char *format, ...);
 void	ft_putstr(char *s, int *ptr_sum);
 void	ft_putnbr(int n, int *ptr_sum);
 void	ft_putchar(char c, int *ptr_sum);
-void	ft_puthex(int n, const char *format, int *ptr_sum);
+void	ft_puthex(intptr_t num, const char *format, int *ptr_sum);
 void	ft_format(const char *format, int *ptr_sum, va_list args);
 void	ft_putunsnbr(unsigned int n, int *ptr_sum);
-void	ft_putpointer(void *ptr, int *ptr_sum);
 
 #endif
