@@ -6,49 +6,33 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:12:06 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/22 11:12:06 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/23 14:30:18 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+#include <limits.h>
 
-#include <stdio.h>
-#include <unistd.h>
-
-//• %p The void * pointer argument has to be printed in hexadecimal format.
+/*
+	• %c Prints a single character.
+	• %s Prints a string (as defined by the common C convention).
+	• %% Prints a percent sign.
+	• %d Prints a decimal (base 10) number.
+	• %i Prints an integer in base 10.
+	• %p The void * pointer argument has to be printed in hexadecimal format.
+	• %u Prints an unsigned decimal (base 10) number.
+	• %x Prints a number in hexadecimal (base 16) lowercase format.
+	• %X Prints a number in hexadecimal (base 16) uppercase format.
+*/
 
 int	main(void)
 {
-	char	*format;
-	char	*s2;
-
-	// format= "sss%cd%s\n";
-	// format = "s%c%%%s\n%d\n%%\n";
-	// printf(format, 'c', "ahoj", 1);
-	// ft_printf(format, 'c', "ahoj", 1);
-	// format = "%%%s%%s\n";
-	// printf(format, "ahoj");
-	// printf("%d",ft_printf(format, "ahoj"));
-
-
-	//  s2 = "Mussum Ipsum,	cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
-	// format = " %s";
-	// printf(format, "");
-	// ft_printf(format, "");
-
-
-	//format = " NULL %s NULL ";
-	//printf(format, NULL);
-	//ft_printf(" NULL %s NULL ", NULL);
-	// int 		sig_int = -222;
-	// unsigned	unsig_int  = -222;
-	// ft_printf("%u", unsig_int);
-	//ft_printf("%d", 222);
-	void *ptr;
-	char *ptr2 = "sk";
-	ptr = ptr2;
-	printf("%p\n", ptr);
-	ft_printf("%%%p%s",ptr,"ahoj");
-	
-	//printf("%p",ptr);
+	ft_printf("%c\n", 'c');
+	ft_printf("%s\n", "string");
+	ft_printf("%s\n", NULL);
+	ft_printf("%%\n");
+	ft_printf("%d\n", INT_MAX);
+	ft_printf("%d\n", INT_MAX);
+	ft_printf("%u\n", -200);
+	ft_printf(" %p %x %X \n", LONG_MIN, INT_MAX, INT_MAX);
 }
