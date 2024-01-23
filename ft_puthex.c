@@ -6,7 +6,7 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:27:16 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/23 12:09:18 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/23 13:18:31 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	ft_puthex(intptr_t num, const char *format, int *ptr_sum)
 		hex = "abcdef";
 	if (num < 0)
 	{
-		ft_putchar('-', ptr_sum);
-		num *= -1;
+		if (*(format + 1) == 'p')
+			num = (uintptr_t)num;
+		else
+			num = (unsigned int)num;
 	}
 	if (num < 16)
 	{
