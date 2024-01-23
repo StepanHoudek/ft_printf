@@ -14,7 +14,8 @@ CC		:=	cc
 CFLAGS	:=	-Wall -Wextra -Werror
 RM		:=	rm -f
 NAME	:=	libftprintf.a
-SRCS	:=	ft_printf.c ft_putstr.c ft_putnbr.c ft_putchar.c ft_puthex.c ft_format.c ft_putunsnbr.c
+SRCS	:=	ft_printf.c ft_putstr.c ft_putnbr.c ft_putchar.c ft_puthex.c ft_format.c ft_putunsnbr.c \
+			ft_putpointer.c
 OBJS	:=	$(SRCS:.c=.o)
 
 all:		$(NAME)
