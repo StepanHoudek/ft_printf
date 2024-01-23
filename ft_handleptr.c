@@ -6,7 +6,7 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:43:29 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/23 13:45:01 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/23 14:16:36 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	ft_handleptr(uintptr_t num, const char *format, int *ptr_sum)
 		return ;
 	}
 	ft_putstr("0x", ptr_sum);
-	ft_puthexptr(num, format, ptr_sum);
+	ft_puthex(num, format, ptr_sum);
 }

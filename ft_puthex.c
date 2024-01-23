@@ -6,16 +6,18 @@
 /*   By: shoudek <shoudek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:27:16 by shoudek           #+#    #+#             */
-/*   Updated: 2024/01/23 13:22:29 by shoudek          ###   ########.fr       */
+/*   Updated: 2024/01/23 14:23:12 by shoudek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthex(unsigned int num, const char *format, int *ptr_sum)
+void	ft_puthex(uintptr_t num, const char *format, int *ptr_sum)
 {
 	char	*hex;
 
+	if (*(format + 1) != 'p')
+		num = (unsigned int)num;
 	if (*(format + 1) == 'X')
 		hex = "ABCDEF";
 	else
@@ -35,6 +37,7 @@ void	ft_puthex(unsigned int num, const char *format, int *ptr_sum)
 }
 
 /*
+#include <limits.h>
 int	main(void)
 {
 	int			*ptr_sum;
@@ -45,8 +48,9 @@ int	main(void)
 	sum = 0;
 	ptr_sum = &sum;
 	max = 2147483650;
-	ft_puthex(max, format, ptr_sum);
-	printf("\n%x", max);
+	ft_puthex(LONG_MIN, "%p", ptr_sum);
+	printf("\n");
+	printf("%p", LONG_MIN);
 	//float	remainder = ((501 % 16) / (float)16) * 16;
 	//printf("%f", remainder);
 }
